@@ -26,10 +26,12 @@ class SearchApp:
     
     def render_header(self) -> None:
         """Render the title of the app."""
-        st.title("Search Application")
+        st.title(":iphone: Application for searching")
 
     def render_search_by_keyword(self) -> None:
         """Render the Search by Keyword tab."""
+        st.warning(":zap: Give keyword and location to get list of urls!")
+
         keyword = st.text_input("Enter keyword:")
         location = st.text_input("Enter location:")
 
@@ -43,6 +45,9 @@ class SearchApp:
 
     def render_search_by_url(self) -> None:
         """Render the Search by URL tab."""
+        st.warning(":zap: Enter url get information like category, email, contact and phone number!")
+
+
         url = st.text_input("Enter URL:")
 
         if st.button("Search", key="search_url",  help="Click to search to display 100 results from google, you can extract them in a csv file."):
@@ -101,7 +106,11 @@ class SearchApp:
 
     def show_results(self, df: pd.DataFrame) -> None:
         """Display results in a well-formatted table."""
+        st.divider()
         st.subheader("Results")
+
+        # Start row numbering from 1
+        df.index = df.index + 1
         
         # Apply custom CSS for better table styling
         st.markdown(
