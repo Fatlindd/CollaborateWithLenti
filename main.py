@@ -33,8 +33,7 @@ class SearchApp:
         keyword = st.text_input("Enter keyword:")
         location = st.text_input("Enter location:")
 
-        if st.button("Search", key="search_keyword"):
-            # Placeholder for actual API or database search integration
+        if st.button("Search", key="search_keyword", help="Click to search to display 100 results from google, you can extract them in a csv file."):
             st.info("Feature under development.")
         
         self.show_results(self.search_by_keyword)
@@ -46,7 +45,7 @@ class SearchApp:
         """Render the Search by URL tab."""
         url = st.text_input("Enter URL:")
 
-        if st.button("Search", key="search_url"):
+        if st.button("Search", key="search_url",  help="Click to search to display 100 results from google, you can extract them in a csv file."):
             if url:
                 # Instead of scraping, mock data for the URL search
                 scraped_data = {
